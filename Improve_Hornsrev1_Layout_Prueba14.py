@@ -89,7 +89,7 @@ for s in range(Iter_Num):
         x_sol = wt_x
         x_rnd = []
         for i in range(0,(WT_Num)):
-            x_rnd.append(rnd.uniform(-10,+10))
+            x_rnd.append(rnd.uniform(-20,+20))
         x_sol += np.array(x_rnd)
         if (all_elements_smaller_than(x_sol, posit_x_max)) and (all_elements_greater_than(x_sol, posit_x_min)):
             good_x_sol = True
@@ -98,7 +98,7 @@ for s in range(Iter_Num):
         y_sol = wt_y
         y_rnd = []
         for i in range(0,(WT_Num)):
-            y_rnd.append(rnd.uniform(-25,+25))
+            y_rnd.append(rnd.uniform(-20,+20))
         y_sol += np.array(y_rnd)   
         if (all_elements_smaller_than(y_sol, posit_y_max)) and (all_elements_greater_than(y_sol, posit_y_min)):
             good_y_sol = True
