@@ -72,6 +72,18 @@ def all_elements_greater_than(lst, value):
 def all_elements_smaller_than(lst, value):
     return all(x < value for x in lst)
 
+#def list_randon_values_summer(lst, val_max, val_min):
+#    lst_rnd = []
+#    for x in lst:
+#        lst_rnd_val = 0
+#        good_lst_rnd_val = False 
+#        while good_lst_rnd_val == False:
+#            lst_rnd_val = (x + (rnd.uniform(-5,+5)))
+#            if (lst_rnd_val < val_max) and (lst_rnd_val > val_min):
+#                good_lst_rnd_val = True
+#        lst_rnd.append(lst_rnd_val)
+#    return lst_rnd
+
 def list_randon_values(lst, val_max, val_min):
     lst_rnd = []
     for x in lst:
@@ -90,24 +102,14 @@ solutions = []
 for s in range(Iter_Num):
     x_rnd = []
     y_rnd = []
-    good_x_sol = False
-    while good_x_sol == False:
-        x_sol = wt_x
-        x_rnd = []
-        for i in range(0,(WT_Num)):
-            x_rnd.append(rnd.uniform(-20,+20))
-        x_sol += np.array(x_rnd)
-        if (all_elements_smaller_than(x_sol, posit_x_max)) and (all_elements_greater_than(x_sol, posit_x_min)):
-            good_x_sol = True
-    good_y_sol = False
-    while good_y_sol == False:
-        y_sol = wt_y
-        y_rnd = []
-        for i in range(0,(WT_Num)):
-            y_rnd.append(rnd.uniform(-20,+20))
-        y_sol += np.array(y_rnd)   
-        if (all_elements_smaller_than(y_sol, posit_y_max)) and (all_elements_greater_than(y_sol, posit_y_min)):
-            good_y_sol = True
+    x_sol = wt_x
+    for i in range(0,(WT_Num)):
+        x_rnd = list_randon_values(x_sol, posit_x_max, posit_x_min)
+        x_sol = np.array(x_rnd)
+    y_sol = wt_y
+    for i in range(0,(WT_Num)):
+        y_rnd = list_randon_values(y_sol, posit_y_max, posit_y_min)
+        y_sol = np.array(y_rnd)   
     solutions.append( (x_sol,y_sol) )
 
 rankedsolutions = []
